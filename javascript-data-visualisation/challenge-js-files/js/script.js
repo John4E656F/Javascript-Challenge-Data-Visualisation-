@@ -1,6 +1,8 @@
 console.log(document.body)
 
+
 //Gather Data from the DOM
+
 var httpRequest;
 var data
 
@@ -40,6 +42,28 @@ table1.parentNode.insertBefore(div, table1);
 // console.log(table2);
 // console.log(canvas)
 // console.log(div);
+
+
+function gatherDomData(e) {
+    /* Getting the number of rows in the table. */
+    let rowLength = e.rows.length;
+    console.log(rowLength);
+    let data = [];
+    for (let i = 0; i < rowLength; i++) {
+        /* Getting the cells of the table. */
+        let col = e.rows.item(i).cells;
+        console.log(col);
+        /* Getting the number of columns in the table. */
+        let colLength = col.length;
+        console.log(colLength);
+        for (let j = 0; j < colLength; j++) {
+            data.push(col.item(j).innerHTML);
+        }
+    }
+    return console.log(data);
+}
+
+gatherDomData(table1);
 
 const ctx = document.getElementById('canvas');
 const myChart = new Chart(ctx, {
