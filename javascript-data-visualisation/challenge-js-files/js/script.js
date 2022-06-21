@@ -25,12 +25,12 @@ function handleResponse() {
 }
 
     makeRequest();
+
 let div = document.createElement('div');
 let canvas = document.createElement('canvas');
 canvas.id = 'canvas';
 canvas.width = 800;
 div.append(canvas);
-canvas.innerHTML = 'hello';
 
 
 // document.getElementById('firstHeading').appendChild(div, canvas);
@@ -44,35 +44,14 @@ table1.parentNode.insertBefore(div, table1);
 // console.log(div);
 
 
-function gatherDomData(e) {
-    /* Getting the number of rows in the table. */
-    let rowLength = e.rows.length;
-    console.log(rowLength);
-    let data = [];
-    for (let i = 0; i < rowLength; i++) {
-        /* Getting the cells of the table. */
-        let col = e.rows.item(i).cells;
-        console.log(col);
-        /* Getting the number of columns in the table. */
-        let colLength = col.length;
-        console.log(colLength);
-        for (let j = 0; j < colLength; j++) {
-            data.push(col.item(j).innerHTML);
-        }
-    }
-    return console.log(data);
-}
-
-gatherDomData(table1);
-
 const ctx = document.getElementById('canvas');
 const myChart = new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
             label: '# of Votes',
-            data: makeRequest(),
+            data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -101,3 +80,31 @@ const myChart = new Chart(ctx, {
     }
 });
 
+function gatherDomData(e) {
+    let data =[];
+    /* Getting the number of rows in the table. */
+    let rowLength = e.rows.length;
+    console.log(rowLength);
+
+    for (let i = 0; i < rowLength; i++) {
+        /* Getting the rows of the table. */
+        let row = e.rows[i];
+        console.log(row);
+        /* Getting the cells of the table. */
+        let col = e.rows.item(i).cells;
+        // console.log(col);
+        /* Getting the number of columns in the table. */
+        let colLength = col.length;
+        // console.log(colLength);
+        for (let j = 0; j < colLength; j++) {
+            /* Getting the data of the table. */
+            let data1 = col.item(j).innerHTML;
+            console.log(data1);
+            data.push(data1);
+        }        
+       
+    }
+    return data;
+}
+
+gatherDomData(table1);
