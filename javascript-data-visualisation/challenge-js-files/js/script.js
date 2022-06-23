@@ -206,7 +206,11 @@ const Greece = {
     label: dataCountry[8],
     data: dataGlobal[8],
     backgroundColor: [
+<<<<<<< HEAD
     'rgba(255, 99, 132, 0.2)',
+=======
+    'rgba(139,0,0)',
+>>>>>>> b479bed (second solution)
     ],
     borderColor: [
     'rgba(255, 99, 132, 1)',
@@ -221,7 +225,11 @@ const Spain = {
     'rgba(255, 99, 132, 0.2)',
     ],
     borderColor: [
+<<<<<<< HEAD
     'rgba(255, 99, 132, 1)',
+=======
+    'rgba(255, 255, 51)',
+>>>>>>> b479bed (second solution)
     ],
     borderWidth: 4
 }
@@ -230,10 +238,17 @@ const France = {
     label: dataCountry[10],
     data: dataGlobal[10],
     backgroundColor: [
+<<<<<<< HEAD
     'rgba(255, 99, 132, 0.2)',
     ],
     borderColor: [
     'rgba(255, 99, 132, 1)',
+=======
+    'rgba(255, 255, 255)',
+    ],
+    borderColor: [
+    'rgba(135, 206, 250)',
+>>>>>>> b479bed (second solution)
     ],
     borderWidth: 4
 }
@@ -242,7 +257,11 @@ const Croatia = {
     label: dataCountry[11],
     data: dataGlobal[11],
     backgroundColor: [
+<<<<<<< HEAD
     'rgba(255, 99, 132, 0.2)',
+=======
+    'rgba(220, 20, 60)',
+>>>>>>> b479bed (second solution)
     ],
     borderColor: [
     'rgba(255, 99, 132, 1)',
@@ -254,10 +273,17 @@ const Italy = {
     label: dataCountry[12],
     data: dataGlobal[12],
     backgroundColor: [
+<<<<<<< HEAD
     'rgba(255, 99, 132, 0.2)',
     ],
     borderColor: [
     'rgba(255, 99, 132, 1)',
+=======
+    'rgba(240, 128, 128)',
+    ],
+    borderColor: [
+    'rgba(124, 252, 0)',
+>>>>>>> b479bed (second solution)
     ],
     borderWidth: 4
 }
@@ -266,10 +292,17 @@ const Cyprus = {
     label: dataCountry[13],
     data: dataGlobal[13],
     backgroundColor: [
+<<<<<<< HEAD
     'rgba(255, 99, 132, 0.2)',
     ],
     borderColor: [
     'rgba(255, 99, 132, 1)',
+=======
+    'rgba(255, 250, 240)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 71)',
+>>>>>>> b479bed (second solution)
     ],
     borderWidth: 4
 }
