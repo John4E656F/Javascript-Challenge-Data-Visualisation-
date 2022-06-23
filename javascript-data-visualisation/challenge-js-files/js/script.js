@@ -1,8 +1,8 @@
 
-//Gather Data from the DOM
+// Coded By John4E656F
 
 var httpRequest;
-var data
+var data = []
 
 function makeRequest() {
     httpRequest = new XMLHttpRequest();
@@ -14,19 +14,42 @@ function makeRequest() {
 function handleResponse() {
     if (httpRequest.readyState === XMLHttpRequest.DONE) {
         if (httpRequest.status === 200) {
-            data = JSON.parse(httpRequest.responseText);
+            return data = JSON.parse(httpRequest.responseText);
 
-            console.log(data);
             // var chart = new CanvasJS.Chart("chartContainer", )
         }
     }
 }
 
-    makeRequest();
+    data = makeRequest();
+    // console.log(data);
+
+
+    // Coded By John4E656F
+    // var dataPoints = [];
+    // $.getJSON("https://canvasjs.com/services/data/datapoints.php", function(data) {  
+    //     $.each(data, function(key, value){
+    //         dataPoints.push({x: value[0], y: parseInt(value[1])});
+    //     });
+    //     chart = new CanvasJS.Chart("chartContainer",{
+    //         title:{
+    //             text:"Live Chart with dataPoints from External JSON"
+    //         },
+    //         data: [{
+    //         type: "line",
+    //         dataPoints : dataPoints,
+    //         }]
+    //     });
+    //     chart.render();
+    //     updateChart();
+    // });
+
+
+
 
 let div = document.createElement('div');
 let canvas = document.createElement('canvas');
-canvas.id = 'canvas';
+canvas.id = 'canvas2';
 canvas.width = 800;
 div.append(canvas);
 
@@ -40,96 +63,498 @@ table1.parentNode.insertBefore(div, table1);
 // console.log(table2);
 // console.log(canvas)
 // console.log(div);
+// Code by John
+
+function point(e) {
+    return parseFloat((e + "").replace(",", "."));
+}
+
+let dataCountry=[];
+let dataGlobal = [];
+let labelYears = [];
+
+function gatherDomData(e) {
+
+    /* Getting the number of rows in the table. */
+    let rowLength = e.rows.length;
+    let years = e.rows[1];
+    let yearsLength = years.cells.length;
 
 
-const ctx = document.getElementById('canvas');
-const myChart = new Chart(ctx, {
-    type: 'bar',
+    for(let j = 2; j < yearsLength; j++) {
+        let yrs = years.cells[j].innerText;
+        labelYears.push(yrs);
+    }
+
+    
+
+    
+    for (let i = 1; i < rowLength; i++) {
+        /* Getting the cells of the table. */
+        let row = e.rows[i];
+        
+        let colCountry = row.cells[1].innerText;
+        dataCountry.push(colCountry);
+
+        let temp = [];
+
+
+        for (var j = 2, col; col = row.cells[j]; j++) {
+            temp.push(point(col.innerText));
+
+        }
+        dataGlobal.push(temp)
+        
+
+    }
+
+}
+// Coded By John4E656F
+console.log(dataCountry);
+
+console.log(dataGlobal);
+
+console.log(labelYears)
+
+gatherDomData(table1);
+
+const Belgium = {
+    label: dataCountry[1],
+    data: dataGlobal[1],
+    backgroundColor: [
+    'rgb(255, 99, 132)',
+    ],
+    borderColor: [
+    'rgb(0,0,0)',
+    ],
+    borderWidth: 4
+}
+
+const Bulgaria = {
+    label: dataCountry[2],
+    data: dataGlobal[2],
+    backgroundColor: [
+    'rgba(34,139,34)',
+    ],
+    borderColor: [
+    'rgba(0, 128, 0)',
+    ],
+    borderWidth: 4
+}
+
+const Czech = {
+    label: dataCountry[3],
+    data: dataGlobal[3],
+    backgroundColor: [
+    'rgba(173, 216, 230)',
+    ],
+    borderColor: [
+    'rgba(135, 206, 250)',
+    ],
+    borderWidth: 4
+}
+
+const Denmark = {
+    label: dataCountry[4],
+    data: dataGlobal[4],
+    backgroundColor: [
+    'rgba(255, 0, 0)',
+    ],
+    borderColor: [
+    'rgba(139, 0, 0)',
+    ],
+    borderWidth: 4
+}
+
+const Germany = {
+    label: dataCountry[5],
+    data: dataGlobal[5],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const Estonia = {
+    label: dataCountry[6],
+    data: dataGlobal[6],
+    backgroundColor: [
+    'rgba(0, 0, 205)',
+    ],
+    borderColor: [
+    'rgba(0, 0, 0)',
+    ],
+    borderWidth: 4
+}
+
+const Ireland = {
+    label: dataCountry[7],
+    data: dataGlobal[7],
+    backgroundColor: [
+    'rgba(255, 255, 255)',
+    ],
+    borderColor: [
+    'rgba(0, 128, 0)',
+    ],
+    borderWidth: 4
+}
+
+const Greece = {
+    label: dataCountry[8],
+    data: dataGlobal[8],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const Spain = {
+    label: dataCountry[9],
+    data: dataGlobal[9],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const France = {
+    label: dataCountry[10],
+    data: dataGlobal[10],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const Croatia = {
+    label: dataCountry[11],
+    data: dataGlobal[11],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const Italy = {
+    label: dataCountry[12],
+    data: dataGlobal[12],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const Cyprus = {
+    label: dataCountry[13],
+    data: dataGlobal[13],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const Latvia = {
+    label: dataCountry[14],
+    data: dataGlobal[14],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const Lithuania = {
+    label: dataCountry[15],
+    data: dataGlobal[15],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const Luxembourg = {
+    label: dataCountry[16],
+    data: dataGlobal[16],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const Hungary = {
+    label: dataCountry[17],
+    data: dataGlobal[17],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const Malta = {
+    label: dataCountry[18],
+    data: dataGlobal[18],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const Dutch = {
+    label: dataCountry[19],
+    data: dataGlobal[19],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const Austria = {
+    label: dataCountry[20],
+    data: dataGlobal[20],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const Poland = {
+    label: dataCountry[21],
+    data: dataGlobal[21],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const Portugal = {
+    label: dataCountry[22],
+    data: dataGlobal[22],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const Romania = {
+    label: dataCountry[23],
+    data: dataGlobal[23],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const Slovenia = {
+    label: dataCountry[24],
+    data: dataGlobal[24],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const Slovakia = {
+    label: dataCountry[25],
+    data: dataGlobal[25],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const Finland = {
+    label: dataCountry[26],
+    data: dataGlobal[26],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const Sweden = {
+    label: dataCountry[27],
+    data: dataGlobal[27],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+
+const Iceland = {
+    label: dataCountry[28],
+    data: dataGlobal[28],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const Liechtenstein = {
+    label: dataCountry[29],
+    data: dataGlobal[29],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+// Code by John4E656F
+const Norway = {
+    label: dataCountry[30],
+    data: dataGlobal[30],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const Switzerland = {
+    label: dataCountry[31],
+    data: dataGlobal[31],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+// Coded By John
+const Montenegro = {
+    label: dataCountry[33],
+    data: dataGlobal[33],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const Macedonia = {
+    label: dataCountry[34],
+    data: dataGlobal[34],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+
+const Serbia = {
+    label: dataCountry[35],
+    data: dataGlobal[35],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+// Coded By John4E656F
+const Turkey = {
+    label: dataCountry[36],
+    data: dataGlobal[36],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    ],
+    borderColor: [
+    'rgba(255, 99, 132, 1)',
+    ],
+    borderWidth: 4
+}
+const ctx = document.getElementById('canvas2');
+const chartTable1 = new Chart(ctx, {
+    type: 'line',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
+        labels: labelYears,
+        datasets: [Belgium, Bulgaria, Czech, Denmark,
+        Germany, Estonia, Ireland, Greece, Spain, France, 
+        Croatia, Italy, Cyprus, Latvia, Lithuania,
+        Luxembourg, Hungary, Malta, Dutch, Austria, Poland,
+        Portugal, Romania, Slovenia, Slovakia, Finland,
+        Sweden, Iceland, Liechtenstein, Norway, Switzerland,
+        Montenegro, Macedonia, Serbia, Turkey]
     },
     options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
     }
 });
 
-let dataObj = {}
-let dataCountry=[];
-let data2 = [];
-let data3 = [];
-let data4 = [];
-let data5 = [];
-let data6 = [];
-let data7 = [];
-let data8 = [];
-let data9 = [];
-let data10 = [];
-let data11 = [];
-let data12 = [];
 
-let x = [];
-function gatherDomData(e) {
-    
-    /* Getting the number of rows in the table. */
-    let rowLength = e.rows.length;
-    // console.log(rowLength);
-
-    for (let i = 1; i < rowLength; i++) {
-        /* Getting the cells of the table. */
-        let col = e.rows.item(i).cells;
-
-        dataCountry.push(col.item(1).innerText);
-        data2.push(col.item(2).innerHTML);
-        data3.push(col.item(3).innerHTML);
-        data4.push(col.item(4).innerHTML);
-        data5.push(col.item(5).innerHTML);
-        data6.push(col.item(6).innerHTML);
-        data7.push(col.item(7).innerHTML);
-        data8.push(col.item(8).innerHTML);
-        data9.push(col.item(9).innerHTML);
-        data10.push(col.item(10).innerHTML);
-        data11.push(col.item(11).innerHTML);
-        data12.push(col.item(12).innerHTML);
-        
-    }
-    console.log(x);
-}
-
-console.log(dataCountry);
-console.log(data2);
-console.log(data3);
-console.log(data4);
-console.log(data5);
-console.log(data6);
-console.log(data7);
-console.log(data8);
-console.log(data9);
-console.log(data10);
-console.log(data11);
-console.log(data12);
-gatherDomData(table1);
+// Coded By John4E656F
