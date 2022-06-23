@@ -20844,7 +20844,7 @@ var bb = {
   *      "data": {
   *          "columns": [
   *              ["data1", 30, 200, 100, 400, 150, 250],
-  *              ["data2", 50, 20, 10, 40, 15, 25]
+  *              ["dataGlobal", 50, 20, 10, 40, 15, 25]
   *           ]
   *      }
   *  });
@@ -21278,7 +21278,7 @@ var Options = function Options() {
        * data․ {
                 *   xs: {
                 *    data1: "x1",
-                *    data2: "x2"
+                *    dataGlobal: "x2"
                 *   }
        * }
        */
@@ -21337,7 +21337,7 @@ var Options = function Options() {
        * data․ {
                 *   names: {
                 *     data1: "Data Name 1",
-                *     data2: "Data Name 2"
+                *     dataGlobal: "Data Name 2"
                 *   }
        * }
        */
@@ -21354,7 +21354,7 @@ var Options = function Options() {
        * data․ {
                 *   classes: {
                 *     data1: "additional-data1-class",
-                *     data2: "additional-data2-class"
+                *     dataGlobal: "additional-dataGlobal-class"
                 *   }
        * }
        */
@@ -21369,7 +21369,7 @@ var Options = function Options() {
        * @example
        * data․ {
                 *   groups: [
-                *     ["data1", "data2"],
+                *     ["data1", "dataGlobal"],
                 *     ["data3"]
                 *   ]
        * }
@@ -21386,7 +21386,7 @@ var Options = function Options() {
        * data․ {
        *   axes: {
        *     data1: "y",
-       *     data2: "y2"
+       *     dataGlobal: "y2"
        *   }
        * }
        */
@@ -21430,7 +21430,7 @@ var Options = function Options() {
        * data․ {
        *   types: {
        *     data1: "bar",
-       *     data2: "spline"
+       *     dataGlobal: "spline"
        *   }
        * }
        */
@@ -21485,7 +21485,7 @@ var Options = function Options() {
        *  - `desc`: In descending order
        *  - `asc`: In ascending order
        *  - `null`: It keeps the data load order
-       *  - `function(data1, data2) { ... }`: Array.sort compareFunction
+       *  - `function(data1, dataGlobal) { ... }`: Array.sort compareFunction
        * @name data․order
        * @memberOf Options
        * @type {String|Function|null}
@@ -21840,7 +21840,7 @@ var Options = function Options() {
        * data․ {
        *   columns: [
        *      ["data1", 30, 20, 50, 40, 60, 50],
-       *      ["data2", 200, 130, 90, 240, 130, 220],
+       *      ["dataGlobal", 200, 130, 90, 240, 130, 220],
        *      ["data3", 300, 200, 160, 400, 250, 250]
        *   ]
        * }
@@ -22008,7 +22008,7 @@ var Options = function Options() {
        *      show: true,
        *      hide: true,
        *      //or hide: "data1"
-                *      //or hide: ["data1", "data2"]
+                *      //or hide: ["data1", "dataGlobal"]
        *      contents: {
        *          bindto: "#legend",   // <ul id='legend'></ul>
        *
@@ -23160,7 +23160,7 @@ var Options = function Options() {
        *
        *      // or set radius callback
        *      maxR: function(d) {
-       *          // ex. of d param - {x: Fri Oct 06 2017 00:00:00 GMT+0900, value: 80, id: "data2", index: 5}
+       *          // ex. of d param - {x: Fri Oct 06 2017 00:00:00 GMT+0900, value: 80, id: "dataGlobal", index: 5}
        *          ...
        *          return Math.sqrt(d.value * 2);
        *      }
@@ -23385,7 +23385,7 @@ var Options = function Options() {
        *  - `null`: It keeps the data display order<br>
        *     **NOTE:** When `data.groups` is set, the order will follow as the stacked graph order.<br>
        *      If want to order as data bound, set any value rather than asc, desc or null. (ex. empty string "")
-       *  - `function(data1, data2) { ... }`: [Array.sort compareFunction](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#Parameters)
+       *  - `function(data1, dataGlobal) { ... }`: [Array.sort compareFunction](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#Parameters)
        * @example
        *  tooltip: {
        *      show: true,
@@ -28673,8 +28673,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   *  // data1 will be highlighted and the others will be faded out
   *  chart.focus("data1");
   *
-  * // data1 and data2 will be highlighted and the others will be faded out
-  * chart.focus(["data1", "data2"]);
+  * // data1 and dataGlobal will be highlighted and the others will be faded out
+  * chart.focus(["data1", "dataGlobal"]);
   *
   * // all targets will be highlighted
   * chart.focus();
@@ -28700,8 +28700,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   * // data1 will be faded out and the others will be reverted.
   * chart.defocus("data1");
   *
-  * // data1 and data2 will be faded out and the others will be reverted.
-  * chart.defocus(["data1", "data2"]);
+  * // data1 and dataGlobal will be faded out and the others will be reverted.
+  * chart.defocus(["data1", "dataGlobal"]);
   *
   * // all targets will be faded out.
   * chart.defocus();
@@ -28727,8 +28727,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   * // data1 will be reverted.
   * chart.revert("data1");
   *
-  * // data1 and data2 will be reverted.
-  * chart.revert(["data1", "data2"]);
+  * // data1 and dataGlobal will be reverted.
+  * chart.revert(["data1", "dataGlobal"]);
   *
   * // all targets will be reverted.
   * chart.revert();
@@ -29033,13 +29033,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   *    | done | The specified function will be called after data loaded.|
   *
   * @example
-  *  // Load data1 and unload data2 and data3
+  *  // Load data1 and unload dataGlobal and data3
   *  chart.load({
   *     columns: [
   *        ["data1", 100, 200, 150, ...],
   *        ...
   *    ],
-  *    unload: ["data2", "data3"],
+  *    unload: ["dataGlobal", "data3"],
   *    url: "...",
   *    done: function() { ... }
   *  });
@@ -29079,9 +29079,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   * - If ids given, the data that has specified target id will be unloaded. ids should be String or Array. If ids is not specified, all data will be unloaded.
   * - If done given, the specified function will be called after data loded.
   * @example
-  *  // Unload data2 and data3
+  *  // Unload dataGlobal and data3
   *  chart.unload({
-  *    ids: ["data2", "data3"]
+  *    ids: ["dataGlobal", "data3"]
   *  });
   */
 	unload: function unload(argsValue) {
@@ -29135,7 +29135,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   *  columns: [
   *    ["x", "2013-01-11", "2013-01-21"],
   *    ["data1", 500, 200],
-  *    ["data2", 100, 300],
+  *    ["dataGlobal", 100, 300],
   *    ["data3", 200, 120]
   *  ],
   *  done: function () {
@@ -29143,7 +29143,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   *      columns: [
   *        ["x", "2013-02-11", "2013-02-12", "2013-02-13", "2013-02-14"],
   *        ["data1", 200, 300, 100, 250],
-  *        ["data2", 100, 90, 40, 120],
+  *        ["dataGlobal", 100, 90, 40, 120],
   *        ["data3", 100, 100, 300, 500]
   *      ],
   *      length: 0
@@ -29470,8 +29470,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   *  // only data1 will be bar chart.
   *  chart.transform("bar", "data1");
   *
-  *  // only data1 and data2 will be bar chart.
-  *  chart.transform("bar", ["data1", "data2"]);
+  *  // only data1 and dataGlobal will be bar chart.
+  *  chart.transform("bar", ["data1", "dataGlobal"]);
   */
 	transform: function transform(type, targetIds) {
 		var $$ = this.internal,
@@ -29522,9 +29522,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   * @memberOf Chart
   * @param {Array} groups This argument needs to be an Array that includes one or more Array that includes target ids to be grouped.
   * @example
-  *  // data1 and data2 will be a new group.
+  *  // data1 and dataGlobal will be a new group.
   *  chart.groups([
-  *     ["data1", "data2"]
+  *     ["data1", "dataGlobal"]
   *  ]);
   */
 	groups: function groups(_groups) {
@@ -29816,8 +29816,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * // Get only data1 data
  * chart.data("data1");
  *
- * // Get data1 and data2 data
- * chart.data(["data1", "data2"]);
+ * // Get data1 and dataGlobal data
+ * chart.data(["data1", "dataGlobal"]);
  *
  * // Get all data
  * chart.data();
@@ -29845,8 +29845,8 @@ var data = function (targetIds) {
   * // Get shown data by filtering to include only data1 data
   * chart.data.shown("data1");
   *
-  * // Get shown data by filtering to include data1 and data2 data
-  * chart.data.shown(["data1", "data2"]);
+  * // Get shown data by filtering to include data1 and dataGlobal data
+  * chart.data.shown(["data1", "dataGlobal"]);
   *
   * // Get all shown data
   * chart.data.shown();
@@ -29892,7 +29892,7 @@ var data = function (targetIds) {
   * // Update names
   * chart.data.names({
   *  data1: "New Name 1",
-  *  data2: "New Name 2"
+  *  dataGlobal: "New Name 2"
   *});
   */
 	names: function names(_names) {
@@ -29913,7 +29913,7 @@ var data = function (targetIds) {
   * // Update colors
   * chart.data.colors({
   *  data1: "#FFFFFF",
-  *  data2: "#000000"
+  *  dataGlobal: "#000000"
   * });
   */
 	colors: function colors(_colors) {
@@ -29933,7 +29933,7 @@ var data = function (targetIds) {
   * // Update axes
   * chart.data.axes({
   *  data1: "y",
-  *  data2: "y2"
+  *  dataGlobal: "y2"
   * });
   */
 	axes: function axes(_axes) {
@@ -30084,7 +30084,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   *  // Update x values for all targets
   *  chart.xs({
   *    data1: [10, 20, 30, 40, ...],
-  *    data2: [100, 200, 300, 400, ...]
+  *    dataGlobal: [100, 200, 300, 400, ...]
   *  });
   */
 	xs: function xs(_xs) {
@@ -30286,8 +30286,8 @@ var legend = (0, _util.extend)(function () {}, {
   * // Show legend for data1.
   * chart.legend.show("data1");
   *
-  * // Show legend for data1 and data2.
-  * chart.legend.show(["data1", "data2"]);
+  * // Show legend for data1 and dataGlobal.
+  * chart.legend.show(["data1", "dataGlobal"]);
   *
   * // Show all legend.
   * chart.legend.show();
@@ -30311,8 +30311,8 @@ var legend = (0, _util.extend)(function () {}, {
   * // Hide legend for data1.
   * chart.legend.hide("data1");
   *
-  * // Hide legend for data1 and data2.
-  * chart.legend.hide(["data1", "data2"]);
+  * // Hide legend for data1 and dataGlobal.
+  * chart.legend.hide(["data1", "dataGlobal"]);
   *
   * // Hide all legend.
   * chart.legend.hide();
