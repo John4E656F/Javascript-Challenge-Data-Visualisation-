@@ -1,29 +1,4 @@
 
-
-
-
-    // Coded By John4E656F
-    // var dataPoints = [];
-    // $.getJSON("https://canvasjs.com/services/data/datapoints.php", function(data) {  
-    //     $.each(data, function(key, value){
-    //         dataPoints.push({x: value[0], y: parseInt(value[1])});
-    //     });
-    //     chart = new CanvasJS.Chart("chartContainer",{
-    //         title:{
-    //             text:"Live Chart with dataPoints from External JSON"
-    //         },
-    //         data: [{
-    //         type: "line",
-    //         dataPoints : dataPoints,
-    //         }]
-    //     });
-    //     chart.render();
-    //     updateChart();
-    // });
-
-
-
-
 let div = document.createElement('div');
 let canvas = document.createElement('canvas');
 canvas.id = 'canvas1';
