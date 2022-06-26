@@ -444,8 +444,8 @@ const Switzerland = {
 }
 // Coded By John
 const Montenegro = {
-    label: dataCountry[33],
-    data: dataGlobal[33],
+    label: dataCountry[32],
+    data: dataGlobal[32],
     backgroundColor: [
     'rgba(178, 34, 34)',
     ],
@@ -456,20 +456,20 @@ const Montenegro = {
 }
 
 const Macedonia = {
-    label: dataCountry[34],
-    data: dataGlobal[34],
+    label: dataCountry[33],
+    data: dataGlobal[33],
     backgroundColor: [
-    'rgba(220, 20, 60)',
+    'rgba(220, 20, 60)'
     ],
     borderColor: [
-    'rgba(255, 255, 0)',
+    'rgba(255, 255, 0)'
     ],
     borderWidth: 4
 }
 
 const Serbia = {
-    label: dataCountry[35],
-    data: dataGlobal[35],
+    label: dataCountry[34],
+    data: dataGlobal[34],
     backgroundColor: [
     'rgba(205, 92, 92)',
     ],
@@ -480,8 +480,8 @@ const Serbia = {
 }
 // Coded By John4E656F
 const Turkey = {
-    label: dataCountry[36],
-    data: dataGlobal[36],
+    label: dataCountry[35],
+    data: dataGlobal[35],
     backgroundColor: [
     'rgba(250, 240, 230)',
     ],
